@@ -1,0 +1,29 @@
+{
+  "name": "logicexplorer",
+  "version": "0.0.0",
+  "description": "Program allowing use to explore boolean logic and gates using physical input (Level 2 and 3)",
+  "main": "index.html",
+  "window": {},
+  "scripts": {
+    "start": "electron main.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/EduMake/logicexplorer.git"
+  },
+  "author": "Martyn Eggleton <martyn@edumake.org>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EduMake/logicexplorer/issues"
+  },
+  "dependencies": {
+    "electron-prebuilt": "^1.2.3",
+    "i2c-bus": "^1.1.0",
+    "knockout": "^3.4.0",
+    "knockout-mapping": "^2.6.0"
+  },
+  "devDependencies": {
+    "electron-rebuild": "^1.1.5"
+  }
+}
