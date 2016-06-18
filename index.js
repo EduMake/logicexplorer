@@ -58,14 +58,30 @@ var CapacitiveToggles = function(interval){
 	//setInterval(this.update.bind(this), this.interval);
 }
 
+
 var Cap = new CapacitiveToggles(2000);
+
+function expr_p(){
+	var sentence = document.getElementById("expr_p").value.toUpperCase();
+	var TruthMachineP = new TruthMachine(sentence);
+	var output = TruthMachineP.compute(Cap);
+	document.getElementById("output_p").innerHTML = output;
+	console.log("expr_p sentence",sentence, "Cap", Cap ,"output",output);
+}
+
+expr_p();
+
 //var viewModel = new LogicModel(Cap);
 
 var viewModel = ko.mapping.fromJS(Cap);
 ko.applyBindings(viewModel);
 
-setInterval(function(){
+var updateStuff = function(){
+	expr_p();
 	Cap.update.call(Cap);
 	ko.mapping.fromJS(Cap, viewModel);
 	console.log(Cap);
-}, Cap.interval);
+};
+
+updateStuff();
+//setInterval(updateStuff, Cap.interval);

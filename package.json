@@ -21,7 +21,8 @@
     "electron-prebuilt": "^1.2.3",
     "i2c-bus": "^1.1.0",
     "knockout": "^3.4.0",
-    "knockout-mapping": "^2.6.0"
+    "knockout-mapping": "^2.6.0",
+    "truthmachine": "^1.0.1"
   },
   "devDependencies": {
     "electron-rebuild": "^1.1.5"

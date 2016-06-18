@@ -42,11 +42,83 @@
 		</tbody>
 		
 	</table>
+
+	<table>
+		<tr>
+			<th>A</th>
+			<th>B</th>
+			<th>C</th>
+			<th>D</th>
+			<th>E</th>
+			<th>F</th>
+			<th>G</th>
+			<th>H</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" data-bind="checked: A" /></td>
+			<td><input type="checkbox" data-bind="checked: B" /></td>
+			<td><input type="checkbox" data-bind="checked: C" /></td>
+			<td><input type="checkbox" data-bind="checked: D" /></td>
+			<td><input type="checkbox" data-bind="checked: E" /></td>
+			<td><input type="checkbox" data-bind="checked: F" /></td>
+			<td><input type="checkbox" data-bind="checked: G" /></td>
+			<td><input type="checkbox" data-bind="checked: H" /></td>
+		</tr>
+		</tbody>
+		
+	</table>
+
+
+<table>
+		<tr>
+			<th>E</th>
+			<td><input type="checkbox" data-bind="checked: E" /></td>
+			<td colspan="4" />
+		</tr>
+		<tr>
+			<th>F</th>
+			<td><input type="checkbox" data-bind="checked: F" /></td>
+			<td colspan="4" />
+		</tr>
+		<tr>
+			<th>G</th>
+			<td><input type="checkbox" data-bind="checked: G" /></td>
+			<td colspan="4" />
+		</tr>
+		<tr>
+			<th>H</th>
+			<td><input type="checkbox" data-bind="checked: H" /></td>
+			<td colspan="4">Pimoroni Explorer Hat</td>
+		</tr>
+		
+		<tr>
+			<td colspan="2" />
+			<th>A</th>
+			<th>B</th>
+			<th>C</th>
+			<th>D</th>
+		</tr>
+		<tr>
+			<td colspan="2" />
+			<td><input type="checkbox" data-bind="checked: A" /></td>
+			<td><input type="checkbox" data-bind="checked: B" /></td>
+			<td><input type="checkbox" data-bind="checked: C" /></td>
+			<td><input type="checkbox" data-bind="checked: D" /></td>
+		</tr>
+		</tbody>
+		
+	</table>
+
+
 	
-	<p>P = <input id="expr" value ="A AND B" /> = <span id="output"></span></p>
+	<p>P = <input id="expr_p" onchange="expr_p();" value ="A AND B" /> = <span id="output_p"></span></p>
 
 	<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 	<script src="node_modules/knockout-mapping/dist/knockout.mapping.min.js"></script>
+	
+	<script src="node_modules/truthmachine/js/sentential-logic.js"></script>
+	<script src="node_modules/truthmachine/js/truthmachine.js"></script>
+	
 	<script src="index.js"></script>
 </body>
 </html>
