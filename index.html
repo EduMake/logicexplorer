@@ -6,6 +6,7 @@
 	<body>
 	<h1>LogicExplorer</h1>
 
+	<!--
 	<table>
 		<tr>
 			<th>A</th>
@@ -42,33 +43,9 @@
 		</tbody>
 		
 	</table>
+	-->
 
-	<table>
-		<tr>
-			<th>A</th>
-			<th>B</th>
-			<th>C</th>
-			<th>D</th>
-			<th>E</th>
-			<th>F</th>
-			<th>G</th>
-			<th>H</th>
-		</tr>
-		<tr>
-			<td><input type="checkbox" data-bind="checked: A" /></td>
-			<td><input type="checkbox" data-bind="checked: B" /></td>
-			<td><input type="checkbox" data-bind="checked: C" /></td>
-			<td><input type="checkbox" data-bind="checked: D" /></td>
-			<td><input type="checkbox" data-bind="checked: E" /></td>
-			<td><input type="checkbox" data-bind="checked: F" /></td>
-			<td><input type="checkbox" data-bind="checked: G" /></td>
-			<td><input type="checkbox" data-bind="checked: H" /></td>
-		</tr>
-		</tbody>
-		
-	</table>
-
-
+<h2>Inputs - Explorer Hat Layout</h2>
 <table>
 		<tr>
 			<th>E</th>
@@ -108,14 +85,39 @@
 		</tbody>
 		
 	</table>
+	
+		<h2>Inputs - Easy Read</h2>
+	<table>
+		<tr>
+			<th>A</th>
+			<th>B</th>
+			<th>C</th>
+			<th>D</th>
+			<th>E</th>
+			<th>F</th>
+			<th>G</th>
+			<th>H</th>
+		</tr>
+		<tr>
+			<td><input type="checkbox" data-bind="checked: A" /></td>
+			<td><input type="checkbox" data-bind="checked: B" /></td>
+			<td><input type="checkbox" data-bind="checked: C" /></td>
+			<td><input type="checkbox" data-bind="checked: D" /></td>
+			<td><input type="checkbox" data-bind="checked: E" /></td>
+			<td><input type="checkbox" data-bind="checked: F" /></td>
+			<td><input type="checkbox" data-bind="checked: G" /></td>
+			<td><input type="checkbox" data-bind="checked: H" /></td>
+		</tr>
+		</tbody>
+		
+	</table>
 
-
+	
 	
 	<p>P = <input id="expr_p" onchange="expr_p();" value ="A AND B" /> = <span id="output_p"></span></p>
 
 	<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 	<script src="node_modules/knockout-mapping/dist/knockout.mapping.min.js"></script>
-	
 	<script src="node_modules/truthmachine/js/sentential-logic.js"></script>
 	<script src="node_modules/truthmachine/js/truthmachine.js"></script>
 	
