@@ -54,7 +54,7 @@ function CapacitiveToggles(options){
 		 "P":4,
 		 "Q":17,
 		 "R":27, 
-		 "S":25
+		 "S":5
 		 };
 	
 	for(var name in this.LED_Pins){
