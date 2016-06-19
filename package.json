@@ -6,7 +6,7 @@
   "window": {},
   "scripts": {
     "start": "electron main.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jasmine-node specs/"
   },
   "repository": {
     "type": "git",
@@ -22,6 +22,7 @@
     "i2c-bus": "^1.1.0",
     "knockout": "^3.4.0",
     "knockout-mapping": "^2.6.0",
+    "rpio": "^0.9.11",
     "truthmachine": "^1.0.1"
   },
   "devDependencies": {
