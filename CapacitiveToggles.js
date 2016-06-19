@@ -1,5 +1,6 @@
 module.exports = CapacitiveToggles;
-
+//
+//http://ww1.microchip.com/downloads/en/DeviceDoc/00001570B.pdf 
 // DEVICE MAP
 const DEFAULT_ADDR = 0x28;
 
@@ -15,6 +16,25 @@ const R_GENERAL_STATUS    = 0x02;
 const R_INPUT_STATUS      = 0x03;
 const R_LED_STATUS        = 0x04;
 const R_NOISE_FLAG_STATUS = 0x0A;
+const R_CONFIGURATION2    = 0x44;
+
+const R_INPUT_1_DELTA   = 0x10;
+const R_INPUT_2_DELTA   = 0x11;
+const R_INPUT_3_DELTA   = 0x12;
+const R_INPUT_4_DELTA   = 0x13;
+const R_INPUT_5_DELTA   = 0x14;
+const R_INPUT_6_DELTA   = 0x15;
+const R_INPUT_7_DELTA   = 0x16;
+const R_INPUT_8_DELTA   = 0x17;
+
+const R_INPUT_1_THRESH  = 0x30;
+const R_INPUT_2_THRESH  = 0x31;
+const R_INPUT_3_THRESH  = 0x32;
+const R_INPUT_4_THRESH  = 0x33;
+const R_INPUT_5_THRESH  = 0x34;
+const R_INPUT_6_THRESH  = 0x35;
+const R_INPUT_7_THRESH  = 0x36;
+const R_INPUT_8_THRESH  = 0x37;
 		
 function CapacitiveToggles(options){
 	
@@ -22,11 +42,12 @@ function CapacitiveToggles(options){
 		options = {};
 	}
 	
-	this.explorerhat = options.explorerhat || true;
-	this.cap_toggle = options.cap_toggle || true;
+	this.explorerhat = (typeof options.explorerhat !== "undefined")?options.explorerhat:true;
+	this.cap_toggle  = (typeof options.cap_toggle !== "undefined")?options.cap_toggle:true;
 	this.interval = options.interval || null;
 	this.onchange = options.onchange || null;
 	
+	console.log("options", options, "settings", this);
 	this.data = {};
 	
 	this.LED_Pins = { 
@@ -64,6 +85,9 @@ CapacitiveToggles.prototype.init = function(){
 		for(sLED in this.LED_Pins){
 			this.rpio.open(this.LED_Pins[sLED], this.rpio.OUTPUT, this.rpio.LOW);
 		}
+		
+		this.Threshholds = new Buffer(8);
+		this.Deltas = new Buffer(8);
 	}
 	
 	var self = this; 
@@ -99,14 +123,30 @@ CapacitiveToggles.prototype.init = function(){
 	}
 	
 	this.update = function(){
+		//console.log("update");
 		var currState = self.stateByte;	
 		if(self.explorerhat) {	
-			self.inputByte = self.i2c1.readByteSync(DEFAULT_ADDR, R_INPUT_STATUS);
-			self.stateByte =  self.stateByte ^ self.inputByte;
-			self.i2c1.writeByteSync(DEFAULT_ADDR, R_MAIN_CONTROL, 0x00);
+			if(self.cap_toggle) {
+				self.inputByte = self.i2c1.readByteSync(DEFAULT_ADDR, R_INPUT_STATUS);
+				self.stateByte =  self.stateByte ^ self.inputByte;
+				self.i2c1.writeByteSync(DEFAULT_ADDR, R_MAIN_CONTROL, 0x00);
+			} else {
+				self.i2c1.readI2cBlockSync(DEFAULT_ADDR, R_INPUT_1_THRESH, 8, self.Threshholds);
+				self.i2c1.readI2cBlockSync(DEFAULT_ADDR, R_INPUT_1_DELTA , 8, self.Deltas);
+				var newByte = 0x00;
+				for(var i=0; i<8; i++){
+					//console.log("i",i,"delta",self.Deltas[i],"threshold",self.Threshholds[i]);
+					if(self.Deltas[i]<= 127 && self.Deltas[i]>= self.Threshholds[i]) {
+						//console.log("threshold");
+						newByte = newByte | Math.pow(2,i);
+					}
+				}
+				//console.log("newByte", newByte);
+				self.stateByte = newByte;
+			}
 		}
 		
-		for(var name in self.logicValues){
+		for(var name in self.logicValues) {
 			self.data[name] = (self.stateByte &  self.logicValues[name]) > 0;
 		}
 		

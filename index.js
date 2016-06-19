@@ -1,7 +1,8 @@
 var CapacitiveToggles = require("./CapacitiveToggles.js");
 
 var Cap = new CapacitiveToggles({
-	interval:1000
+	interval:500,
+	cap_toggle:true
 });
 
 var viewModel = ko.mapping.fromJS(Cap.data);
@@ -35,7 +36,6 @@ function recalcLogic(){
 		} else {
 			Cap.setBit(name, false);
 		}
-		
 	}
 }
 
