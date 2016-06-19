@@ -62,7 +62,7 @@ CapacitiveToggles.prototype.init = function(){
 		this.rpio = require('rpio');
 		this.rpio.init({mapping: 'gpio'});
 		for(sLED in this.LED_Pins){
-			this.rpio.open(this.LED_Pins[sLED], this.rpio.OUTPUT, this.rpio.HIGH);
+			this.rpio.open(this.LED_Pins[sLED], this.rpio.OUTPUT, this.rpio.LOW);
 		}
 	}
 	

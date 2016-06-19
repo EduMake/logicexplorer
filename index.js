@@ -22,18 +22,21 @@ Cap.init();
 //Add the mapping update into onchange?
 Cap.onchange = function(){
 	ko.mapping.fromJS(this.data, viewModel); // Writes back to screen
-	expr_p();
+	recalcLogic();
 }.bind(Cap);
 
 // TODO : make something similar for each PQRS by loop?
-function expr_p(){
-	//console.log("expr_p");
-	var sentence = document.getElementById("expr_p").value.toUpperCase();
-	var TruthMachineP = new TruthMachine(sentence);
-	var P = TruthMachineP.compute(Cap.data);
-	Cap.setBit("P", P);
-	document.getElementById("output_p").innerHTML = P;
-	//console.log("expr_p sentence",sentence, "Cap", Cap ,"output",output);
+function recalcLogic(){
+	for(var name in Cap.LED_Pins){
+		var sentence = document.getElementById("expr_"+name).value.toUpperCase().trim(" ");
+		if(sentence.length > 0) {
+			var TruthMachineP = new TruthMachine(sentence);
+			Cap.setBit(name, TruthMachineP.compute(Cap.data));	
+		} else {
+			Cap.setBit(name, false);
+		}
+		
+	}
 }
 
-expr_p();
+Cap.onchange();

@@ -23,7 +23,7 @@
     "knockout": "^3.4.0",
     "knockout-mapping": "^2.6.0",
     "rpio": "^0.9.11",
-    "truthmachine": "^1.0.1"
+    "truthmachine": "^1.0.2"
   },
   "devDependencies": {
     "electron-rebuild": "^1.1.5"

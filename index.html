@@ -114,7 +114,11 @@
 
 	
 	
-	<p>P = <input id="expr_p" onchange="expr_p();" value ="A AND B" /> = <span id="output_p"></span></p>
+	<p>P = <input id="expr_P" onchange="recalcLogic();" value ="A AND B" /> = <span data-bind="text: P" /></p>
+	<p>Q = <input id="expr_Q" onchange="recalcLogic();" value ="C OR P" /> = <span data-bind="text: Q" /></p>
+	<p>R = <input id="expr_R" onchange="recalcLogic();" value ="" /> = <span data-bind="text: R" /></p>
+	<p>S = <input id="expr_S" onchange="recalcLogic();" value ="" /> = <span data-bind="text: S" /></p>
+	
 
 	<script src="node_modules/knockout/build/output/knockout-latest.js"></script>
 	<script src="node_modules/knockout-mapping/dist/knockout.mapping.min.js"></script>
