@@ -9,50 +9,18 @@ var viewModel = ko.mapping.fromJS(Cap.data);
 ko.applyBindings(viewModel);
 //console.log("applied model");
 
-//Write the buttons back to the stateByte
-// TODO :try this with a loop
-{
-	viewModel.A.subscribe(function(val) {
-		Cap.setBit("A", val);
-	});
-
-	viewModel.B.subscribe(function(val) {
-		Cap.setBit("B", val);
-	});
-
-	viewModel.C.subscribe(function(val) {
-		Cap.setBit("C", val);
-	});
-
-	viewModel.D.subscribe(function(val) {
-		Cap.setBit("D", val);
-	});
-	
-	viewModel.E.subscribe(function(val) {
-		Cap.setBit("E", val);
-	});
-
-	viewModel.F.subscribe(function(val) {
-		Cap.setBit("F", val);
-	});
-
-	viewModel.G.subscribe(function(val) {
-		Cap.setBit("G", val);
-	});
-
-	viewModel.H.subscribe(function(val) {
-		Cap.setBit("H", val);
-	});
+//Write the buttons back to the stateByte and Cap.data
+for(var name in Cap.logicValues){
+	viewModel[name].subscribe(function(name, val) {
+		Cap.setBit(name, val);
+	}.bind(Cap, name));
 }
 
-//console.log("subscriptions added");
-
+//Split this out trying to sort out data binding issues, not sure its a good idea
 Cap.init();
 
 //Add the mapping update into onchange?
 Cap.onchange = function(){
-	//console.log("onchange");
-	//console.log(this);
 	ko.mapping.fromJS(this.data, viewModel); // Writes back to screen
 	expr_p();
 }.bind(Cap);
