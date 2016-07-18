@@ -1,10 +1,9 @@
 [Desktop Entry]
 Name=LogicExplorer
-Comment=Use Boolean Algebra with Raspberry Pi & Explorer Hats
+Comment=Use Boolean Algebra with Raspberry Pi and Explorer Hats
 Path=/home/pi/projects/logicexplorer
-Exec=start.sh
+Exec=/home/pi/projects/logicexplorer/start.sh
 Icon=/usr/share/icons/gnome/256x256/emotes/stock_smiley-15.png
-#/usr/share/pixmaps/minecraft-pi.png
 Terminal=false
 Type=Application
 Categories=Application;Programming;
