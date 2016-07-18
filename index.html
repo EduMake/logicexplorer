@@ -45,48 +45,8 @@
 	</table>
 	-->
 
-<h2>Inputs - Explorer Hat Layout</h2>
-<table>
-		<tr>
-			<th>E</th>
-			<td><input type="checkbox" data-bind="checked: E" /></td>
-			<td colspan="4" />
-		</tr>
-		<tr>
-			<th>F</th>
-			<td><input type="checkbox" data-bind="checked: F" /></td>
-			<td colspan="4" />
-		</tr>
-		<tr>
-			<th>G</th>
-			<td><input type="checkbox" data-bind="checked: G" /></td>
-			<td colspan="4" />
-		</tr>
-		<tr>
-			<th>H</th>
-			<td><input type="checkbox" data-bind="checked: H" /></td>
-			<td colspan="4">Pimoroni Explorer Hat</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2" />
-			<th>A</th>
-			<th>B</th>
-			<th>C</th>
-			<th>D</th>
-		</tr>
-		<tr>
-			<td colspan="2" />
-			<td><input type="checkbox" data-bind="checked: A" /></td>
-			<td><input type="checkbox" data-bind="checked: B" /></td>
-			<td><input type="checkbox" data-bind="checked: C" /></td>
-			<td><input type="checkbox" data-bind="checked: D" /></td>
-		</tr>
-		</tbody>
-		
-	</table>
-	
-		<h2>Inputs - Easy Read</h2>
+
+	<h2>Inputs</h2>
 	<table>
 		<tr>
 			<th>A</th>
@@ -112,10 +72,56 @@
 		
 	</table>
 
+	<h3>Explorer Hat</h3>
+	<table>
+		<tr>
+			<th>E(5)</th>
+			<td><input type="checkbox" data-bind="checked: E" /></td>
+			<th colspan="4">Pimoroni Explorer Hat</td>
+		</tr>
+		<tr>
+			<th>F(6)</th>
+			<td><input type="checkbox" data-bind="checked: F" /></td>
+			<td colspan="4" />
+		</tr>
+		<tr>
+			<th>G(7)</th>
+			<td><input type="checkbox" data-bind="checked: G" /></td>
+			<td colspan="4" />
+		</tr>
+		<tr>
+			<th>H(8)</th>
+			<td><input type="checkbox" data-bind="checked: H" /></td>
+			<th data-bind="style: { background: P() ? 'lightblue' : 'none'}">P</th>
+			<th data-bind="style: { background: Q() ? 'orange' : 'none'}">Q</th>
+			<th data-bind="style: { background: R() ? 'red' : 'none'}">R</th>
+			<th data-bind="style: { background: S() ? 'lightgreen' : 'none'}">S</th>
+			</tr>
+		
+		<tr>
+			<td colspan="2" />
+			<th>A(1)</th>
+			<th>B(2)</th>
+			<th>C(3)</th>
+			<th>D(4)</th>
+		</tr>
+		<tr>
+			<td colspan="2" />
+			<td><input type="checkbox" data-bind="checked: A" /></td>
+			<td><input type="checkbox" data-bind="checked: B" /></td>
+			<td><input type="checkbox" data-bind="checked: C" /></td>
+			<td><input type="checkbox" data-bind="checked: D" /></td>
+		</tr>
+		</tbody>
+		
+	</table>
+	
+
+
 	<h2>Boolean Algebra</h2>
 	
-	<p><strong>P</strong> = <input id="expr_P" onchange="recalcLogic();" value ="A AND B" /> = <span data-bind="text: P" /></p>
-	<p><strong>Q</strong> = <input id="expr_Q" onchange="recalcLogic();" value ="C OR P" /> = <span data-bind="text: Q" /></p>
+	<p><strong>P</strong> = <input id="expr_P" onchange="recalcLogic();" value ="NOT A" /> = <span data-bind="text: P" /></p>
+	<p><strong>Q</strong> = <input id="expr_Q" onchange="recalcLogic();" value ="B AND P" /> = <span data-bind="text: Q" /></p>
 	<p><strong>R</strong> = <input id="expr_R" onchange="recalcLogic();" value ="" /> = <span data-bind="text: R" /></p>
 	<p><strong>S</strong> = <input id="expr_S" onchange="recalcLogic();" value ="" /> = <span data-bind="text: S" /></p>
 	

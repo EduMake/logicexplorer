@@ -10,7 +10,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 800, height: 640})
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/index.html`)
@@ -58,7 +58,7 @@ const dialog = electron.dialog
 const globalShortcut = electron.globalShortcut
 
 app.on('ready', function () {
-  globalShortcut.register('CommandOrControl+Shift+T', function () {
+  globalShortcut.register('CommandOrControl+Shift+L', function () {
     createTTWindow();
   })
 })
